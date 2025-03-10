@@ -369,9 +369,10 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   collectionName: 'about_uses';
   info: {
+    description: '';
     displayName: 'AboutUs';
     pluralName: 'about-uses';
     singularName: 'about-us';
@@ -386,9 +387,10 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
-        minLength: 10;
+        minLength: 5;
       }>;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -405,7 +407,7 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    values: Schema.Attribute.Text;
+    values: Schema.Attribute.Component<'values.values', true>;
     vision: Schema.Attribute.Text;
   };
 }

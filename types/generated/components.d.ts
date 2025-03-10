@@ -22,10 +22,22 @@ export interface HeroSlideHeroSlide extends Struct.ComponentSchema {
   };
 }
 
+export interface ValuesValues extends Struct.ComponentSchema {
+  collectionName: 'components_values_values';
+  info: {
+    displayName: 'Values';
+    icon: 'star';
+  };
+  attributes: {
+    value: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'hero-slide.hero-slide': HeroSlideHeroSlide;
+      'values.values': ValuesValues;
     }
   }
 }
