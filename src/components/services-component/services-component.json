@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_services_component_services_components",
+  "info": {
+    "displayName": "Services-Component",
+    "icon": "stack",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 5
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}
