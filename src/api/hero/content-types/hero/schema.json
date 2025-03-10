@@ -10,25 +10,10 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true,
-      "minLength": 1
-    },
-    "subtitle": {
-      "type": "text",
-      "required": true,
-      "minLength": 1
-    },
-    "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+    "heroSlider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hero-slide.hero-slide"
     }
   }
 }
