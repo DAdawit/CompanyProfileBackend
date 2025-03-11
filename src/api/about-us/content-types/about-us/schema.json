@@ -41,6 +41,22 @@
       "type": "component",
       "repeatable": true,
       "component": "values.values"
+    },
+    "mission_banner_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "vision_banner_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -398,6 +398,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     mission: Schema.Attribute.Text;
+    mission_banner_image: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -409,6 +410,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     values: Schema.Attribute.Component<'values.values', true>;
     vision: Schema.Attribute.Text;
+    vision_banner_image: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
 
@@ -440,6 +442,7 @@ export interface ApiHeroHero extends Struct.CollectionTypeSchema {
 export interface ApiLogoLogo extends Struct.SingleTypeSchema {
   collectionName: 'logos';
   info: {
+    description: '';
     displayName: 'logo';
     pluralName: 'logos';
     singularName: 'logo';
@@ -454,7 +457,7 @@ export interface ApiLogoLogo extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::logo.logo'> &
       Schema.Attribute.Private;
-    primary: Schema.Attribute.Media<'images' | 'files', true> &
+    primary: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     secondary: Schema.Attribute.Media<'files' | 'images'>;
