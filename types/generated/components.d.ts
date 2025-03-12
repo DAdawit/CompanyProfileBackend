@@ -45,6 +45,20 @@ export interface ServicesComponentServicesComponent
   };
 }
 
+export interface SocialLinksSocialLinks extends Struct.ComponentSchema {
+  collectionName: 'components_social_links_social_links';
+  info: {
+    displayName: 'Social_links';
+  };
+  attributes: {
+    email: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    linkedin: Schema.Attribute.String;
+    telegram: Schema.Attribute.String;
+    tiktok: Schema.Attribute.String;
+  };
+}
+
 export interface ValuesValues extends Struct.ComponentSchema {
   collectionName: 'components_values_values';
   info: {
@@ -61,6 +75,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'hero-slide.hero-slide': HeroSlideHeroSlide;
       'services-component.services-component': ServicesComponentServicesComponent;
+      'social-links.social-links': SocialLinksSocialLinks;
       'values.values': ValuesValues;
     }
   }
