@@ -2,12 +2,20 @@
   "collectionName": "components_values_values",
   "info": {
     "displayName": "Values",
-    "icon": "star"
+    "icon": "star",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "value": {
-      "type": "string"
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 2
     }
   }
 }
