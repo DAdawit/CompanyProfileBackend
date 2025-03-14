@@ -491,6 +491,55 @@ export interface ApiCallToActionCallToAction extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
+  collectionName: 'company_details';
+  info: {
+    displayName: 'CompanyDetail';
+    pluralName: 'company-details';
+    singularName: 'company-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    full_address: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    links: Schema.Attribute.Component<'social-links.social-links', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::company-detail.company-detail'
+    > &
+      Schema.Attribute.Private;
+    org_name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    po_box: Schema.Attribute.Integer;
+    primary_logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    primary_phone: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    secondary_logo: Schema.Attribute.Media<'images' | 'files'>;
+    secondary_phone: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeroHero extends Struct.CollectionTypeSchema {
   collectionName: 'heroes';
   info: {
@@ -1235,6 +1284,7 @@ declare module '@strapi/strapi' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
       'api::call-to-action.call-to-action': ApiCallToActionCallToAction;
+      'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::hero.hero': ApiHeroHero;
       'api::logo.logo': ApiLogoLogo;
       'api::our-team.our-team': ApiOurTeamOurTeam;
