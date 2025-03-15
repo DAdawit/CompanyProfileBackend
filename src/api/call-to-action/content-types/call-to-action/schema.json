@@ -4,13 +4,14 @@
   "info": {
     "singularName": "call-to-action",
     "pluralName": "call-to-actions",
-    "displayName": "callToAction"
+    "displayName": "callToAction",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
       "unique": false,

@@ -457,6 +457,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
 export interface ApiCallToActionCallToAction extends Struct.SingleTypeSchema {
   collectionName: 'call_to_actions';
   info: {
+    description: '';
     displayName: 'callToAction';
     pluralName: 'call-to-actions';
     singularName: 'call-to-action';
@@ -480,7 +481,7 @@ export interface ApiCallToActionCallToAction extends Struct.SingleTypeSchema {
         minLength: 2;
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 2;
@@ -608,6 +609,7 @@ export interface ApiOurTeamOurTeam extends Struct.CollectionTypeSchema {
     bio: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
+        maxLength: 150;
         minLength: 5;
       }>;
     createdAt: Schema.Attribute.DateTime;
