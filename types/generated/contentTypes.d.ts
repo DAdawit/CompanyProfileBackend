@@ -381,6 +381,11 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    company_history: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -560,34 +565,6 @@ export interface ApiHeroHero extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiLogoLogo extends Struct.SingleTypeSchema {
-  collectionName: 'logos';
-  info: {
-    description: '';
-    displayName: 'logo';
-    pluralName: 'logos';
-    singularName: 'logo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::logo.logo'> &
-      Schema.Attribute.Private;
-    primary: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    secondary: Schema.Attribute.Media<'files' | 'images'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1288,7 +1265,6 @@ declare module '@strapi/strapi' {
       'api::call-to-action.call-to-action': ApiCallToActionCallToAction;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::hero.hero': ApiHeroHero;
-      'api::logo.logo': ApiLogoLogo;
       'api::our-team.our-team': ApiOurTeamOurTeam;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::service.service': ApiServiceService;
