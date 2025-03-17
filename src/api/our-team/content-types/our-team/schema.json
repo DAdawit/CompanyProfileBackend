@@ -19,16 +19,17 @@
     "bio": {
       "type": "text",
       "required": true,
-      "minLength": 5
+      "minLength": 5,
+      "maxLength": 150
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "SocialLinks": {
       "type": "component",

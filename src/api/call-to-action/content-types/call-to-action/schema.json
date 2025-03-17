@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "call_to_actions",
+  "info": {
+    "singularName": "call-to-action",
+    "pluralName": "call-to-actions",
+    "displayName": "callToAction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "minLength": 2
+    },
+    "message": {
+      "type": "text",
+      "required": true,
+      "minLength": 2
+    }
+  }
+}

@@ -381,6 +381,11 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    company_history: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -454,6 +459,93 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCallToActionCallToAction extends Struct.SingleTypeSchema {
+  collectionName: 'call_to_actions';
+  info: {
+    description: '';
+    displayName: 'callToAction';
+    pluralName: 'call-to-actions';
+    singularName: 'call-to-action';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::call-to-action.call-to-action'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
+  collectionName: 'company_details';
+  info: {
+    displayName: 'CompanyDetail';
+    pluralName: 'company-details';
+    singularName: 'company-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    full_address: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    links: Schema.Attribute.Component<'social-links.social-links', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::company-detail.company-detail'
+    > &
+      Schema.Attribute.Private;
+    org_name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    po_box: Schema.Attribute.Integer;
+    primary_logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    primary_phone: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    secondary_logo: Schema.Attribute.Media<'images' | 'files'>;
+    secondary_phone: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeroHero extends Struct.CollectionTypeSchema {
   collectionName: 'heroes';
   info: {
@@ -479,34 +571,6 @@ export interface ApiHeroHero extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiLogoLogo extends Struct.SingleTypeSchema {
-  collectionName: 'logos';
-  info: {
-    description: '';
-    displayName: 'logo';
-    pluralName: 'logos';
-    singularName: 'logo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::logo.logo'> &
-      Schema.Attribute.Private;
-    primary: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    secondary: Schema.Attribute.Media<'files' | 'images'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiOurTeamOurTeam extends Struct.CollectionTypeSchema {
   collectionName: 'our_teams';
   info: {
@@ -522,6 +586,7 @@ export interface ApiOurTeamOurTeam extends Struct.CollectionTypeSchema {
     bio: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
+        maxLength: 150;
         minLength: 5;
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -1197,8 +1262,9 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
+      'api::call-to-action.call-to-action': ApiCallToActionCallToAction;
+      'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::hero.hero': ApiHeroHero;
-      'api::logo.logo': ApiLogoLogo;
       'api::our-team.our-team': ApiOurTeamOurTeam;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::service.service': ApiServiceService;

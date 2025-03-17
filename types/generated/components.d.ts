@@ -62,11 +62,21 @@ export interface SocialLinksSocialLinks extends Struct.ComponentSchema {
 export interface ValuesValues extends Struct.ComponentSchema {
   collectionName: 'components_values_values';
   info: {
+    description: '';
     displayName: 'Values';
     icon: 'star';
   };
   attributes: {
-    value: Schema.Attribute.String;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
   };
 }
 
