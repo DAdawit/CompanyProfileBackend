@@ -43,20 +43,27 @@
       "component": "values.values"
     },
     "mission_banner_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "vision_banner_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "company_history": {
+      "type": "text",
+      "required": true,
+      "minLength": 10
     }
   }
 }
