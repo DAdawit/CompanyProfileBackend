@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "time_line_events",
+  "info": {
+    "singularName": "time-line-event",
+    "pluralName": "time-line-events",
+    "displayName": "TimeLineEvent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 1
+    },
+    "timeLineEvents": {
+      "type": "component",
+      "repeatable": true,
+      "component": "timeline-event.timeline-event"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_important_stats_important_stats",
+  "info": {
+    "displayName": "ImportantStats",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "amount": {
+      "type": "integer",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 1
+    }
+  }
+}

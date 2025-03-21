@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_timeline_event_timeline_events",
+  "info": {
+    "displayName": "timelineEvent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "date_of_event": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 1
+    },
+    "event": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    }
+  }
+}

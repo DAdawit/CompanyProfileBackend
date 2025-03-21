@@ -42,6 +42,27 @@ export interface HeroSlideHeroSlide extends Struct.ComponentSchema {
   };
 }
 
+export interface ImportantStatsImportantStats extends Struct.ComponentSchema {
+  collectionName: 'components_important_stats_important_stats';
+  info: {
+    displayName: 'ImportantStats';
+    icon: 'stack';
+  };
+  attributes: {
+    amount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+  };
+}
+
 export interface ServicesComponentServicesComponent
   extends Struct.ComponentSchema {
   collectionName: 'components_services_component_services_components';
@@ -79,6 +100,31 @@ export interface SocialLinksSocialLinks extends Struct.ComponentSchema {
   };
 }
 
+export interface TimelineEventTimelineEvent extends Struct.ComponentSchema {
+  collectionName: 'components_timeline_event_timeline_events';
+  info: {
+    description: '';
+    displayName: 'timelineEvent';
+  };
+  attributes: {
+    date_of_event: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    event: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+  };
+}
+
 export interface ValuesValues extends Struct.ComponentSchema {
   collectionName: 'components_values_values';
   info: {
@@ -105,8 +151,10 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'fa-qs.fa-qs': FaQsFaQs;
       'hero-slide.hero-slide': HeroSlideHeroSlide;
+      'important-stats.important-stats': ImportantStatsImportantStats;
       'services-component.services-component': ServicesComponentServicesComponent;
       'social-links.social-links': SocialLinksSocialLinks;
+      'timeline-event.timeline-event': TimelineEventTimelineEvent;
       'values.values': ValuesValues;
     }
   }

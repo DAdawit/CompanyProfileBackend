@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_stats",
+  "info": {
+    "singularName": "site-stat",
+    "pluralName": "site-stats",
+    "displayName": "siteStats",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 1
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "important-stats.important-stats"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
