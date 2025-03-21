@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_fa_qs_fa_qs",
+  "info": {
+    "displayName": "FAQs",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "answer": {
+      "type": "text",
+      "required": true,
+      "minLength": 5
+    }
+  }
+}

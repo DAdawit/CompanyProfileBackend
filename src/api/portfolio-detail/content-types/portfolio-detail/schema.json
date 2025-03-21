@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "portfolio_details",
+  "info": {
+    "singularName": "portfolio-detail",
+    "pluralName": "portfolio-details",
+    "displayName": "PortfolioDetail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 2
+    }
+  }
+}

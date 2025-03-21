@@ -4,7 +4,8 @@
   "info": {
     "singularName": "company-detail",
     "pluralName": "company-details",
-    "displayName": "CompanyDetail"
+    "displayName": "CompanyDetail",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -41,22 +42,29 @@
       "component": "social-links.social-links"
     },
     "primary_logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "secondary_logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": false
+      ]
+    },
+    "street_address": {
+      "type": "string"
+    },
+    "working_hour": {
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -1,5 +1,25 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface FaQsFaQs extends Struct.ComponentSchema {
+  collectionName: 'components_fa_qs_fa_qs';
+  info: {
+    displayName: 'FAQs';
+    icon: 'user';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }>;
+    question: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+  };
+}
+
 export interface HeroSlideHeroSlide extends Struct.ComponentSchema {
   collectionName: 'components_hero_slide_hero_slides';
   info: {
@@ -83,6 +103,7 @@ export interface ValuesValues extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'fa-qs.fa-qs': FaQsFaQs;
       'hero-slide.hero-slide': HeroSlideHeroSlide;
       'services-component.services-component': ServicesComponentServicesComponent;
       'social-links.social-links': SocialLinksSocialLinks;
