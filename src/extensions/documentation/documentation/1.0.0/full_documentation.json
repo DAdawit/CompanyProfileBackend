@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-03-21T14:04:02.217Z"
+    "x-generation-date": "2025-03-26T19:01:12.964Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -6938,7 +6938,9 @@
               "title",
               "description",
               "image",
-              "company_history"
+              "company_history",
+              "seoTitle",
+              "seoDescription"
             ],
             "type": "object",
             "properties": {
@@ -6994,6 +6996,18 @@
                 "example": "string or id"
               },
               "company_history": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "seoTitle": {
+                "type": "string"
+              },
+              "seoDescription": {
+                "type": "string"
+              },
+              "tags": {
                 "type": "string"
               },
               "locale": {
@@ -7058,7 +7072,9 @@
           "title",
           "description",
           "image",
-          "company_history"
+          "company_history",
+          "seoTitle",
+          "seoDescription"
         ],
         "properties": {
           "id": {
@@ -7944,6 +7960,18 @@
           "company_history": {
             "type": "string"
           },
+          "slug": {
+            "type": "string"
+          },
+          "seoTitle": {
+            "type": "string"
+          },
+          "seoDescription": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -8400,6 +8428,18 @@
                 "company_history": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "string"
+                },
+                "seoTitle": {
+                  "type": "string"
+                },
+                "seoDescription": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -8492,7 +8532,11 @@
               "title",
               "body",
               "media",
-              "author"
+              "author",
+              "seoTitle",
+              "seoDescription",
+              "banner_image",
+              "excerpt"
             ],
             "type": "object",
             "properties": {
@@ -8525,6 +8569,32 @@
               },
               "featured": {
                 "type": "boolean"
+              },
+              "seoTitle": {
+                "type": "string"
+              },
+              "seoDescription": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "banner_image": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
+              },
+              "excerpt": {
+                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -8588,7 +8658,11 @@
           "title",
           "body",
           "media",
-          "author"
+          "author",
+          "seoTitle",
+          "seoDescription",
+          "banner_image",
+          "excerpt"
         ],
         "properties": {
           "id": {
@@ -9214,6 +9288,150 @@
           "featured": {
             "type": "boolean"
           },
+          "seoTitle": {
+            "type": "string"
+          },
+          "seoDescription": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "banner_image": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {},
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number",
+                "format": "float"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {},
+              "related": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "folderPath": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "createdBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "updatedBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "excerpt": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -9409,6 +9627,150 @@
                 },
                 "featured": {
                   "type": "boolean"
+                },
+                "seoTitle": {
+                  "type": "string"
+                },
+                "seoDescription": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "banner_image": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "alternativeText": {
+                      "type": "string"
+                    },
+                    "caption": {
+                      "type": "string"
+                    },
+                    "width": {
+                      "type": "integer"
+                    },
+                    "height": {
+                      "type": "integer"
+                    },
+                    "formats": {},
+                    "hash": {
+                      "type": "string"
+                    },
+                    "ext": {
+                      "type": "string"
+                    },
+                    "mime": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "number",
+                      "format": "float"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "previewUrl": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "provider_metadata": {},
+                    "related": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "documentId": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "folder": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "folderPath": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "publishedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "createdBy": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "updatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "localizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "documentId": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "excerpt": {
+                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
