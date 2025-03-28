@@ -64,22 +64,6 @@
       "type": "text",
       "required": true,
       "minLength": 10
-    },
-    "slug": {
-      "type": "string"
-    },
-    "seoTitle": {
-      "type": "string",
-      "required": true,
-      "minLength": 1
-    },
-    "seoDescription": {
-      "type": "string",
-      "required": true,
-      "default": "null"
-    },
-    "tags": {
-      "type": "string"
     }
   }
 }

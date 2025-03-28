@@ -405,16 +405,6 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     mission: Schema.Attribute.Text;
     mission_banner_image: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
-    seoDescription: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'null'>;
-    seoTitle: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
-    slug: Schema.Attribute.String;
-    tags: Schema.Attribute.String;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -556,6 +546,11 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
       'api::company-detail.company-detail'
     > &
       Schema.Attribute.Private;
+    org_detail: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     org_name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{

@@ -65,6 +65,11 @@
     "working_hour": {
       "type": "string",
       "required": true
+    },
+    "org_detail": {
+      "type": "text",
+      "required": true,
+      "minLength": 1
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-03-26T19:01:12.964Z"
+    "x-generation-date": "2025-03-28T15:14:46.317Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -6938,9 +6938,7 @@
               "title",
               "description",
               "image",
-              "company_history",
-              "seoTitle",
-              "seoDescription"
+              "company_history"
             ],
             "type": "object",
             "properties": {
@@ -6996,18 +6994,6 @@
                 "example": "string or id"
               },
               "company_history": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "seoTitle": {
-                "type": "string"
-              },
-              "seoDescription": {
-                "type": "string"
-              },
-              "tags": {
                 "type": "string"
               },
               "locale": {
@@ -7072,9 +7058,7 @@
           "title",
           "description",
           "image",
-          "company_history",
-          "seoTitle",
-          "seoDescription"
+          "company_history"
         ],
         "properties": {
           "id": {
@@ -7960,18 +7944,6 @@
           "company_history": {
             "type": "string"
           },
-          "slug": {
-            "type": "string"
-          },
-          "seoTitle": {
-            "type": "string"
-          },
-          "seoDescription": {
-            "type": "string"
-          },
-          "tags": {
-            "type": "string"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -8426,18 +8398,6 @@
                   }
                 },
                 "company_history": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "seoTitle": {
-                  "type": "string"
-                },
-                "seoDescription": {
-                  "type": "string"
-                },
-                "tags": {
                   "type": "string"
                 },
                 "createdAt": {
@@ -10318,7 +10278,8 @@
               "full_address",
               "primary_phone",
               "primary_logo",
-              "working_hour"
+              "working_hour",
+              "org_detail"
             ],
             "type": "object",
             "properties": {
@@ -10370,6 +10331,9 @@
                 "type": "string"
               },
               "working_hour": {
+                "type": "string"
+              },
+              "org_detail": {
                 "type": "string"
               },
               "locale": {
@@ -10435,7 +10399,8 @@
           "full_address",
           "primary_phone",
           "primary_logo",
-          "working_hour"
+          "working_hour",
+          "org_detail"
         ],
         "properties": {
           "id": {
@@ -11199,6 +11164,9 @@
           "working_hour": {
             "type": "string"
           },
+          "org_detail": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -11531,6 +11499,9 @@
                   "type": "string"
                 },
                 "working_hour": {
+                  "type": "string"
+                },
+                "org_detail": {
                   "type": "string"
                 },
                 "createdAt": {
