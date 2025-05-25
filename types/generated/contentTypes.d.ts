@@ -518,6 +518,40 @@ export interface ApiCallToActionCallToAction extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiClientClient extends Struct.SingleTypeSchema {
+  collectionName: 'clients';
+  info: {
+    displayName: 'Clients';
+    pluralName: 'clients';
+    singularName: 'client';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::client.client'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   collectionName: 'company_details';
   info: {
@@ -1489,6 +1523,7 @@ declare module '@strapi/strapi' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
       'api::call-to-action.call-to-action': ApiCallToActionCallToAction;
+      'api::client.client': ApiClientClient;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::faq.faq': ApiFaqFaq;
